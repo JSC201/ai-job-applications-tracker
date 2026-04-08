@@ -1,5 +1,5 @@
-from core.logger import get_logger
+from loguru import logger
 
-logger = get_logger(__name__)
+
 
 # Coming soon: scan inbox, classify emails (rejection, interview, OA), update sheet

@@ -1,9 +1,9 @@
 from openai import OpenAI
 import json
 from core.config import get_openai_key
-from core.logger import get_logger
+from loguru import logger
 
-logger = get_logger(__name__)
+
 
 client = OpenAI(api_key=get_openai_key())
 

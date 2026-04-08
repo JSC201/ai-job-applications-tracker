@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from core.config import load_config
-from core.logger import get_logger
+from loguru import logger
 from src.parser.handler import parse_job_posting
 from src.tracker.handler import get_or_create_sheet, add_job
 
 app = Flask(__name__)
 app.secret_key = 'job-tracker-secret'
-logger = get_logger(__name__)
+
 
 @app.route('/')
 def index():

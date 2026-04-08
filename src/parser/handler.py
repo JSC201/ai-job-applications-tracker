@@ -1,8 +1,8 @@
 from datetime import date
 from src.parser.utils import extract_job_fields
-from core.logger import get_logger
+from loguru import logger
 
-logger = get_logger(__name__)
+
 
 def parse_job_posting(text):
     logger.info("Parsing job posting")

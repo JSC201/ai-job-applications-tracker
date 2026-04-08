@@ -1,10 +1,10 @@
 import os
 import json
 from dotenv import load_dotenv
-from core.logger import get_logger
+from loguru import logger
 
 load_dotenv()
-logger = get_logger(__name__)
+
 
 CONFIG_FILE = 'config.json'
 

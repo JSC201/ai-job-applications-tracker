@@ -1,10 +1,10 @@
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
-from core.logger import get_logger
+from loguru import logger
 import os
 
-logger = get_logger(__name__)
+
 
 SCOPES = [
     'https://www.googleapis.com/auth/gmail.readonly',

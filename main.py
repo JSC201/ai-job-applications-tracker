@@ -1,9 +1,9 @@
 from core.config import load_config
-from core.logger import get_logger
+from loguru import logger
 from src.parser.handler import parse_job_posting
 from src.tracker.handler import get_or_create_sheet, add_job
 
-logger = get_logger(__name__)
+
 
 def add_job_flow(config):
     print("\nPaste the job posting below (URL and/or full description).")

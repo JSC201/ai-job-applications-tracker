@@ -1,8 +1,8 @@
 from googleapiclient.discovery import build
 from core.auth import get_credentials
-from core.logger import get_logger
+from loguru import logger
 
-logger = get_logger(__name__)
+
 
 HEADERS = [
     'Company', 'Job Title', 'Location', 'Salary', 'Date Applied',
