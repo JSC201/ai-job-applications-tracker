@@ -1,8 +1,6 @@
 from datetime import date
-from src.parser.utils import extract_job_fields
+from src.job_intake.utils.openai_parser import extract_job_fields
 from loguru import logger
-
-
 
 def parse_job_posting(text):
     logger.info("Parsing job posting")

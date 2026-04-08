@@ -1,8 +1,6 @@
-from src.tracker.utils import create_spreadsheet, append_row, get_all_rows, update_cell, HEADERS
+from src.job_intake.utils.sheets_client import create_spreadsheet, append_row, get_all_rows, update_cell, HEADERS
 from core.config import save_config
 from loguru import logger
-
-
 
 def get_or_create_sheet(config):
     if 'sheet_id' in config:

@@ -3,8 +3,6 @@ import json
 from core.config import get_openai_key
 from loguru import logger
 
-
-
 client = OpenAI(api_key=get_openai_key())
 
 def extract_job_fields(text):

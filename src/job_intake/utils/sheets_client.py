@@ -2,8 +2,6 @@ from googleapiclient.discovery import build
 from core.auth import get_credentials
 from loguru import logger
 
-
-
 HEADERS = [
     'Company', 'Job Title', 'Location', 'Salary', 'Date Applied',
     'Status', 'URL', 'Summary', 'Requirements', 'Notes'
