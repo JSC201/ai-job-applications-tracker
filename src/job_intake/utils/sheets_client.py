@@ -3,9 +3,15 @@ from core.auth import get_credentials
 from loguru import logger
 
 HEADERS = [
-    'Company', 'Job Title', 'Location', 'Salary', 'Date Applied',
-    'Status', 'URL', 'Summary', 'Requirements', 'Notes'
+    'Company', 'Job Title', 'Location', 'Work Type', 'Salary',
+    'Date Posted', 'Job Post ID', 'Source', 'Recruiter/Hiring Manager',
+    'Contact Link', 'Easy Apply', 'Cover Letter', 'Date Applied',
+    'Follow Up Date', 'Status', 'URL', 'Summary', 'Requirements', 'Notes'
 ]
+
+def col_letter(header_name):
+    idx = HEADERS.index(header_name)
+    return chr(ord('A') + idx)
 
 def get_service():
     return build('sheets', 'v4', credentials=get_credentials())
@@ -40,7 +46,7 @@ def get_all_rows(sheet_id):
     service = get_service()
     result = service.spreadsheets().values().get(
         spreadsheetId=sheet_id,
-        range='Applications!A2:J'
+        range=f'Applications!A2:{col_letter(HEADERS[-1])}'
     ).execute()
     return result.get('values', [])
 

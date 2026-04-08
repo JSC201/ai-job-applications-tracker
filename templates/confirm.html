@@ -7,6 +7,7 @@
 
   <form action="/add" method="POST">
     <div class="field-grid">
+
       <div class="field">
         <label>Company</label>
         <input type="text" name="company" value="{{ job.company }}" required />
@@ -20,25 +21,74 @@
         <input type="text" name="location" value="{{ job.location }}" />
       </div>
       <div class="field">
+        <label>Work Type</label>
+        <input type="text" name="work_type" value="{{ job.work_type }}" placeholder="Remote / Hybrid / On-site" />
+      </div>
+      <div class="field">
         <label>Salary</label>
         <input type="text" name="salary" value="{{ job.salary }}" placeholder="Not listed" />
+      </div>
+      <div class="field">
+        <label>Date Posted</label>
+        <input type="text" name="date_posted" value="{{ job.date_posted }}" />
+      </div>
+      <div class="field">
+        <label>Job Post ID</label>
+        <input type="text" name="job_post_id" value="{{ job.job_post_id }}" />
+      </div>
+      <div class="field">
+        <label>Source</label>
+        <input type="text" name="source" value="{{ job.source }}" placeholder="LinkedIn, Handshake, etc." />
+      </div>
+      <div class="field">
+        <label>Recruiter / Hiring Manager</label>
+        <input type="text" name="recruiter" value="{{ job.recruiter }}" />
+      </div>
+      <div class="field">
+        <label>Contact Link</label>
+        <input type="text" name="contact_link" value="{{ job.contact_link }}" placeholder="LinkedIn profile URL" />
+      </div>
+      <div class="field">
+        <label>Easy Apply</label>
+        <select name="easy_apply">
+          <option value="">—</option>
+          <option value="Y" {% if job.easy_apply == 'Y' %}selected{% endif %}>Y</option>
+          <option value="N" {% if job.easy_apply == 'N' %}selected{% endif %}>N</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Cover Letter</label>
+        <select name="cover_letter">
+          <option value="">—</option>
+          <option value="Y" {% if job.cover_letter == 'Y' %}selected{% endif %}>Y</option>
+          <option value="N" {% if job.cover_letter == 'N' %}selected{% endif %}>N</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Date Applied</label>
+        <input type="text" name="date_applied" value="{{ job.date_applied }}" />
+      </div>
+      <div class="field">
+        <label>Follow Up Date</label>
+        <input type="text" name="follow_up_date" value="{{ job.follow_up_date }}" />
       </div>
       <div class="field full-width">
         <label>Job URL</label>
         <input type="text" name="url" value="{{ job.url }}" placeholder="https://..." />
       </div>
       <div class="field full-width">
-        <label>Date Applied</label>
-        <input type="text" name="date_applied" value="{{ job.date_applied }}" />
-      </div>
-      <div class="field full-width">
         <label>Summary</label>
-        <textarea name="summary" rows="3">{{ job.summary }}</textarea>
+        <textarea name="summary" rows="5">{{ job.summary }}</textarea>
       </div>
       <div class="field full-width">
         <label>Key Requirements</label>
-        <textarea name="requirements" rows="3">{{ job.requirements }}</textarea>
+        <textarea name="requirements" rows="5">{{ job.requirements }}</textarea>
       </div>
+      <div class="field full-width">
+        <label>Notes</label>
+        <textarea name="notes" rows="2">{{ job.notes }}</textarea>
+      </div>
+
     </div>
 
     <div class="actions">

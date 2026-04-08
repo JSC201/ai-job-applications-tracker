@@ -6,16 +6,25 @@ from loguru import logger
 client = OpenAI(api_key=get_openai_key())
 
 def extract_job_fields(text):
-    prompt = f"""Extract the following fields from this job posting and return ONLY a JSON object with no markdown or extra text:
+    prompt = f"""Extract the following fields from this job posting and return ONLY a JSON object with no markdown or extra text.
+
+For summary: write a detailed, specific summary of the role. Include what makes this role and company unique, key responsibilities, team context, and what kind of candidate they are looking for. Do not copy the posting — synthesize it. Be thorough, no length limit.
+
+For requirements: extract the key requirements that stand out for this specific role. Include must-haves, preferred skills, and anything unique or notable. Be specific and detailed, not a generic list.
 
 {{
   "company": "company name",
   "title": "job title",
-  "location": "city, state or Remote",
-  "salary": "salary range or empty string if not listed",
+  "location": "city, state",
+  "work_type": "one of: Remote, Hybrid, On-site, or empty string if unclear",
+  "salary": "salary or OTE range, or empty string if not listed",
+  "date_posted": "date the job was posted if mentioned, otherwise empty string",
+  "job_post_id": "job posting ID if present in the text or URL, otherwise empty string",
+  "source": "platform derived from URL (e.g. LinkedIn, Handshake, Indeed, Company Site), or empty string if unclear",
+  "recruiter": "name of recruiter or hiring manager if mentioned anywhere in the posting, otherwise empty string",
   "url": "job url if present in the text, otherwise empty string",
-  "summary": "2-3 sentence summary of the role",
-  "requirements": "top 3-5 key requirements as a comma-separated string"
+  "summary": "detailed role summary as described above",
+  "requirements": "detailed key requirements as described above"
 }}
 
 Job posting:

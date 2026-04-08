@@ -1,4 +1,4 @@
-from src.job_intake.utils.sheets_client import create_spreadsheet, append_row, get_all_rows, update_cell, HEADERS
+from src.job_intake.utils.sheets_client import create_spreadsheet, append_row, get_all_rows, update_cell, HEADERS, col_letter
 from core.config import save_config
 from loguru import logger
 
@@ -16,8 +16,17 @@ def add_job(sheet_id, job):
         job.get('company', ''),
         job.get('title', ''),
         job.get('location', ''),
+        job.get('work_type', ''),
         job.get('salary', ''),
+        job.get('date_posted', ''),
+        job.get('job_post_id', ''),
+        job.get('source', ''),
+        job.get('recruiter', ''),
+        job.get('contact_link', ''),
+        job.get('easy_apply', ''),
+        job.get('cover_letter', ''),
         job.get('date_applied', ''),
+        job.get('follow_up_date', ''),
         job.get('status', 'Applied'),
         job.get('url', ''),
         job.get('summary', ''),
@@ -38,7 +47,7 @@ def get_jobs(sheet_id):
     return jobs
 
 def update_job_status(sheet_id, row_num, status, notes=''):
-    update_cell(sheet_id, row_num, 'F', status)
+    update_cell(sheet_id, row_num, col_letter('Status'), status)
     if notes:
-        update_cell(sheet_id, row_num, 'J', notes)
+        update_cell(sheet_id, row_num, col_letter('Notes'), notes)
     logger.info(f"Updated row {row_num} to status: {status}")

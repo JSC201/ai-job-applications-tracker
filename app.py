@@ -29,16 +29,25 @@ def parse():
 @app.route('/add', methods=['POST'])
 def add():
     job = {
-        'company':      request.form.get('company', ''),
-        'title':        request.form.get('title', ''),
-        'location':     request.form.get('location', ''),
-        'salary':       request.form.get('salary', ''),
-        'url':          request.form.get('url', ''),
-        'summary':      request.form.get('summary', ''),
-        'requirements': request.form.get('requirements', ''),
-        'date_applied': request.form.get('date_applied', ''),
-        'status':       'Applied',
-        'notes':        '',
+        'company':        request.form.get('company', ''),
+        'title':          request.form.get('title', ''),
+        'location':       request.form.get('location', ''),
+        'work_type':      request.form.get('work_type', ''),
+        'salary':         request.form.get('salary', ''),
+        'date_posted':    request.form.get('date_posted', ''),
+        'job_post_id':    request.form.get('job_post_id', ''),
+        'source':         request.form.get('source', ''),
+        'recruiter':      request.form.get('recruiter', ''),
+        'contact_link':   request.form.get('contact_link', ''),
+        'easy_apply':     request.form.get('easy_apply', ''),
+        'cover_letter':   request.form.get('cover_letter', ''),
+        'date_applied':   request.form.get('date_applied', ''),
+        'follow_up_date': request.form.get('follow_up_date', ''),
+        'url':            request.form.get('url', ''),
+        'summary':        request.form.get('summary', ''),
+        'requirements':   request.form.get('requirements', ''),
+        'notes':          request.form.get('notes', ''),
+        'status':         'Applied',
     }
     try:
         config = load_config()
