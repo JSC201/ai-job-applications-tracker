@@ -46,6 +46,10 @@ def get_jobs(sheet_id):
         jobs.append(job)
     return jobs
 
+def update_follow_up_date(sheet_id, row_num, follow_up_date):
+    update_cell(sheet_id, row_num, col_letter('Follow Up Date'), follow_up_date)
+    logger.info(f"Set follow-up date for row {row_num}: {follow_up_date}")
+
 def update_job_status(sheet_id, row_num, status, notes=''):
     update_cell(sheet_id, row_num, col_letter('Status'), status)
     if notes:

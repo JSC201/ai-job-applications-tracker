@@ -8,9 +8,9 @@ client = OpenAI(api_key=get_openai_key())
 def extract_job_fields(text):
     prompt = f"""Extract the following fields from this job posting and return ONLY a JSON object with no markdown or extra text.
 
-For summary: write a detailed, specific summary of the role. Include what makes this role and company unique, key responsibilities, team context, and what kind of candidate they are looking for. Do not copy the posting — synthesize it. Be thorough, no length limit.
+For summary: write 2-3 sentences covering what this job is about, what the person in this role will actually be doing day-to-day, and what matters most about this specific role. Be specific to this role and company — no generic filler.
 
-For requirements: extract the key requirements that stand out for this specific role. Include must-haves, preferred skills, and anything unique or notable. Be specific and detailed, not a generic list.
+For requirements: organize into three clear categories — what is necessary to be considered for the role, what is nice to have but not required, and anything unique or notable that stands out about what this company is specifically looking for. Return as a plain text string in this format: "Necessary: [list]. Nice-to-have: [list]. Notable: [list]."
 
 {{
   "company": "company name",

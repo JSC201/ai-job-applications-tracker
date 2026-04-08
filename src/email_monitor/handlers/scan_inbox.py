@@ -1,9 +1,10 @@
 import time
+from datetime import datetime, timedelta
 from loguru import logger
 from core.config import load_config, save_config
 from src.email_monitor.utils.gmail_client import get_recent_emails
 from src.email_monitor.utils.openai_classifier import is_job_related, classify_email
-from src.job_intake.handlers.write_to_sheet import get_jobs, update_job_status
+from src.job_intake.handlers.write_to_sheet import get_jobs, update_job_status, update_follow_up_date
 from src.email_monitor.handlers.create_event import create_interview_event
 
 STATUS_MAP = {
@@ -62,6 +63,9 @@ def run():
 
             if category == 'interview_request' and classification.get('interview_date'):
                 create_interview_event(job['Company'], job['Job Title'], classification['interview_date'])
+                interview_dt = datetime.strptime(classification['interview_date'], '%Y-%m-%d %H:%M')
+                follow_up = (interview_dt + timedelta(days=1)).strftime('%Y-%m-%d')
+                update_follow_up_date(sheet_id, job['row'], follow_up)
         else:
             logger.warning(f"Could not match company: {classification.get('company')}")
 

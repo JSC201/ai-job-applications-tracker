@@ -4,8 +4,8 @@ from loguru import logger
 
 HEADERS = [
     'Company', 'Job Title', 'Location', 'Work Type', 'Salary',
-    'Date Posted', 'Job Post ID', 'Source', 'Recruiter/Hiring Manager',
-    'Contact Link', 'Easy Apply', 'Cover Letter', 'Date Applied',
+    'Date Posted', 'Job Post ID', 'Source', 'Recruiter/HM',
+    'Recruiter/HM Contact', 'Easy Apply', 'Cover Letter', 'Date Applied',
     'Follow Up Date', 'Status', 'URL', 'Summary', 'Requirements', 'Notes'
 ]
 
