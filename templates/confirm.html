@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+  <h1>Review &amp; Confirm</h1>
+  <p class="subtitle">Edit any fields before adding to your tracker.</p>
+
+  <form action="/add" method="POST">
+    <div class="field-grid">
+      <div class="field">
+        <label>Company</label>
+        <input type="text" name="company" value="{{ job.company }}" required />
+      </div>
+      <div class="field">
+        <label>Job Title</label>
+        <input type="text" name="title" value="{{ job.title }}" required />
+      </div>
+      <div class="field">
+        <label>Location</label>
+        <input type="text" name="location" value="{{ job.location }}" />
+      </div>
+      <div class="field">
+        <label>Salary</label>
+        <input type="text" name="salary" value="{{ job.salary }}" placeholder="Not listed" />
+      </div>
+      <div class="field full-width">
+        <label>Job URL</label>
+        <input type="text" name="url" value="{{ job.url }}" placeholder="https://..." />
+      </div>
+      <div class="field full-width">
+        <label>Date Applied</label>
+        <input type="text" name="date_applied" value="{{ job.date_applied }}" />
+      </div>
+      <div class="field full-width">
+        <label>Summary</label>
+        <textarea name="summary" rows="3">{{ job.summary }}</textarea>
+      </div>
+      <div class="field full-width">
+        <label>Key Requirements</label>
+        <textarea name="requirements" rows="3">{{ job.requirements }}</textarea>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a href="{{ url_for('index') }}" class="btn-secondary">← Back</a>
+      <button type="submit" class="btn-primary">Add to Tracker ✓</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

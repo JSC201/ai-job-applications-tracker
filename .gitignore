@@ -1,0 +1,13 @@
+# Secrets — never commit these
+.env
+credentials.json
+token.json
+
+# Config generated at runtime
+config.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store

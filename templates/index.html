@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+  <h1>Add a Job Application</h1>
+  <p class="subtitle">Paste the full job posting below. The AI will extract the details automatically.</p>
+
+  <form action="/parse" method="POST">
+    <label for="job_text">Job Posting</label>
+    <textarea
+      id="job_text"
+      name="job_text"
+      rows="16"
+      placeholder="Paste job title, description, requirements, salary — anything from the posting..."
+      required
+    ></textarea>
+    <button type="submit" class="btn-primary">Parse Job →</button>
+  </form>
+</div>
+
+{% endblock %}
