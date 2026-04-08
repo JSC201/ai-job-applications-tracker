@@ -10,7 +10,7 @@ def extract_job_fields(text):
 
 For summary: write 2-3 sentences covering what this job is about, what the person in this role will actually be doing day-to-day, and what matters most about this specific role. Be specific to this role and company — no generic filler.
 
-For requirements: organize into three clear categories — what is necessary to be considered for the role, what is nice to have but not required, and anything unique or notable that stands out about what this company is specifically looking for. Return as a plain text string in this format: "Necessary: [list]. Nice-to-have: [list]. Notable: [list]."
+For requirements: organize into three clear categories — what is necessary to be considered for the role, what is nice to have but not required, and anything unique or notable that stands out about what this company is specifically looking for. Return as a plain text string with each category on its own line in this format: "Necessary: [list]\nNice-to-have: [list]\nNotable: [list]"
 
 {{
   "company": "company name",

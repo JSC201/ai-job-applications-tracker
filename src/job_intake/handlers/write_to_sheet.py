@@ -15,6 +15,8 @@ def add_job(sheet_id, job):
     row = [
         job.get('company', ''),
         job.get('title', ''),
+        job.get('date_applied', ''),
+        job.get('status', 'Applied'),
         job.get('location', ''),
         job.get('work_type', ''),
         job.get('salary', ''),
@@ -25,9 +27,7 @@ def add_job(sheet_id, job):
         job.get('contact_link', ''),
         job.get('easy_apply', ''),
         job.get('cover_letter', ''),
-        job.get('date_applied', ''),
         job.get('follow_up_date', ''),
-        job.get('status', 'Applied'),
         job.get('url', ''),
         job.get('summary', ''),
         job.get('requirements', ''),

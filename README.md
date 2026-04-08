@@ -32,3 +32,15 @@ You'll need your own API keys — this tool does not include any credentials.
 4. Place your `credentials.json` in the project root
 5. Run: `python app.py`
 6. Open `http://127.0.0.1:5000` — on first run, a browser window will prompt you to authorize Google access
+
+## Sheet Color Legend
+
+Row colors update automatically as application statuses change.
+
+| Color | Status |
+|-------|--------|
+| 🔵 Light blue | Applied |
+| 🟢 Light green | Interview Scheduled |
+| 🟡 Light yellow | Online Assessment |
+| 🔴 Light pink | Rejected |
+| 💚 Mint green | Offer |

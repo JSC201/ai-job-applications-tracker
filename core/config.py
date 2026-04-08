@@ -5,8 +5,8 @@ from loguru import logger
 
 load_dotenv()
 
-
 CONFIG_FILE = 'config.json'
+SHEET_TAB = 'Applications'
 
 def get_openai_key():
     key = os.getenv('OPENAI_API_KEY')
